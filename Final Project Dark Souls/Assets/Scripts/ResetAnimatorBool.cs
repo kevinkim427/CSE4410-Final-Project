@@ -11,5 +11,4 @@ public class ResetAnimatorBool : StateMachineBehaviour
     {
         animator.SetBool(targetBool, status);
     }
-
 }

@@ -8,6 +8,5 @@ namespace DS
         [Header("Item Information")]
         public Sprite itemicon;
         public string itemname;
-
     }
 }
