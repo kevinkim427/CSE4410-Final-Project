@@ -1,22 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace DS
 {
     public class EnemyStats : CharacterStats
     {
-        Animator animator;
+        EnemyAnimatorManager animatorHandler;
+        EnemyBossManager enemyBossManager;
+        public BossHealthBar healthBar;
+        SoundDesign sound;
+
+        public bool isBoss;
 
         private void Awake()
         {
-            animator = GetComponent<Animator>();
+            animatorHandler = GetComponentInChildren<EnemyAnimatorManager>();
+            enemyBossManager = GetComponent<EnemyBossManager>();
+            healthBar = GetComponent<BossHealthBar>();
+            maxHealth = SetMaxHealthFromHealthLevel();
+            currentHealth = maxHealth;
         }
 
         void Start()
         {
-            maxHealth = SetMaxHealthFromHealthLevel();
-            currentHealth = maxHealth;
+            if(!isBoss)
+            {
+                maxHealth = SetMaxHealthFromHealthLevel();
+            }
         }
 
         private int SetMaxHealthFromHealthLevel()
@@ -24,20 +36,34 @@ namespace DS
             maxHealth = healthLevel * 10;
             return maxHealth;
         }
-
+        
         public void TakeDamage(int damage)
         {
             if(isDead)
                 return;
             currentHealth = currentHealth - damage;
-            animator.Play("Damage");
+            animatorHandler.PlayTargetAnimation("Damage", true);
+
+            if(isBoss) 
+            {
+                enemyBossManager.UpdateBossHealthBar(currentHealth);
+            }
 
             if(currentHealth <= 0)
             {
                 currentHealth = 0;
-                animator.Play("Dead");
+                animatorHandler.PlayTargetAnimation("Dead", true);
                 isDead = true;
                 // Handle Enemy Death;
+                Destroy(gameObject);
+            }
+
+            if(isBoss && currentHealth <= 0)
+            {
+                currentHealth = 0;
+                animatorHandler.PlayTargetAnimation("Dead", true);
+                isDead = true;
+                SceneManager.LoadScene("MainMenu");
             }
         }
     }

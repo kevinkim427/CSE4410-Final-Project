@@ -13,6 +13,7 @@ namespace DS
         public float mouseY;
 
         public bool b_Input;
+        public bool a_Input;
         public bool rb_Input;
         public bool rt_Input;
         public bool lockOnInput;
@@ -28,6 +29,7 @@ namespace DS
         PlayerAttacker playerAttacker;
         PlayerInventory playerInventory;
         CameraHandler cameraHandler;
+        AnimatorHandler animatorHandler;
         PlayerStats playerStats;
         
         Vector2 movementInput;
@@ -38,6 +40,7 @@ namespace DS
             playerAttacker = GetComponent<PlayerAttacker>();
             playerInventory = GetComponent<PlayerInventory>();
             cameraHandler = FindFirstObjectByType<CameraHandler>();
+            animatorHandler = GetComponentInChildren<AnimatorHandler>();
             playerStats = GetComponent<PlayerStats>();
         }
 
@@ -55,6 +58,7 @@ namespace DS
                 inputActions.PlayerActions.LockOn.performed += i => lockOnInput = true;
                 inputActions.PlayerMovement.LockOnTargetRight.performed += i => right_Stick_Input = true;
                 inputActions.PlayerMovement.LockOnTargetLeft.performed += i => left_Stick_Input = true;
+                inputActions.PlayerActions.Interact.performed += i => a_Input = true;
             }
             inputActions.Enable();
         }
@@ -112,11 +116,13 @@ namespace DS
         {
             if(rb_Input)
             {
+                animatorHandler.anim.SetBool("isUsingRightHand", true);
                 playerAttacker.HandleLightAttack(playerInventory.rightWeapon);
             }
 
             if(rt_Input)
             {
+                animatorHandler.anim.SetBool("isUsingRightHand", true);
                 playerAttacker.HandleHeavyAttack(playerInventory.rightWeapon);
             }
         }

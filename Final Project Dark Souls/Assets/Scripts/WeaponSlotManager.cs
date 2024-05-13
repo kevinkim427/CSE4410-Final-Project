@@ -6,6 +6,7 @@ namespace DS
 {
     public class WeaponSlotManager : MonoBehaviour
     {
+        PlayerManager playerManager;
         WeaponHolderSlot leftHandSlot;
         WeaponHolderSlot rightHandSlot;
 
@@ -18,6 +19,7 @@ namespace DS
 
         private void Awake()
         {
+            playerManager = GetComponentInParent<PlayerManager>();
             playerStats = GetComponentInParent<PlayerStats>();
             WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
             foreach(WeaponHolderSlot weaponSlot in weaponHolderSlots)
@@ -57,23 +59,22 @@ namespace DS
             rightHandDamageCollider = rightHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
         }
 
-        public void OpenRightDamageCollider()
+        public void OpenDamageCollider()
         {
-            rightHandDamageCollider.EnableDamageCollider();
+            if(playerManager.isUsingRightHand)
+            {
+                rightHandDamageCollider.EnableDamageCollider();
+            }
+            else if(playerManager.isUsingLeftHand)
+            {
+                leftHandDamageCollider.EnableDamageCollider();
+            }
+            
         }
 
-        public void OpenLeftDamageCollider()
-        {
-            leftHandDamageCollider.EnableDamageCollider();
-        }
-
-        public void CloseRightDamageCollider()
-        {
+        public void CloseDamageCollider()
+        {            
             rightHandDamageCollider.DisableDamageCollider();
-        }
-
-        public void CloseLeftDamageCollider()
-        {
             leftHandDamageCollider.DisableDamageCollider();
         }
 

@@ -12,6 +12,7 @@ namespace DS
         StaminaBar staminaBar;
         AnimatorHandler animatorHandler;
         InputHandler inputHandler;
+        SoundDesign sound;
 
         public float staminaRegenerationAmount = 30;
         public float staminaRegenerationTimer = 0;
@@ -50,10 +51,11 @@ namespace DS
 
         public void TakeDamage(int damage)
         {
-            if(playerManager.isInvulnerable)
+            if(isDead)
                 return;
             currentHealth = currentHealth - damage;
             healthBar.SetCurrentHealth(currentHealth);
+//            sound.PlayPlayerHitSound();
             animatorHandler.PlayTargetAnimation("Damage", true);
 
             if(currentHealth <= 0)
@@ -61,6 +63,7 @@ namespace DS
                 currentHealth = 0;
                 animatorHandler.PlayTargetAnimation("Dead", true);
                 isDead = true;
+//                sound.PlayDeathSound();
                 // Handle Player Death;
                 SceneManager.LoadScene("GameOver");
             }

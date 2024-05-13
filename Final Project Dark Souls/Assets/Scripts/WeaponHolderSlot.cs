@@ -24,7 +24,7 @@ namespace DS
         {
             if(currentWeaponModel != null)
             {
-                Destroy(currentWeaponModel);
+                return; //Destroy(currentWeaponModel);
             }
         }
 

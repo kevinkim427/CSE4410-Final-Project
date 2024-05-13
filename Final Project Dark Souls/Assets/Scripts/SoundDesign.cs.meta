@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c250a15c075b2d0479b50b45f5875560
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bossFightSong: {fileID: 8300000, guid: 97d6a63d22086174386a5cbb41f5207e, type: 3}
+  - hitSound: {fileID: 8300000, guid: 362ec7da2f2a045e08a1402cb0b01797, type: 3}
+  - playerHitSound: {fileID: 8300000, guid: 956e6f507c2c84ee58b281510190d546, type: 3}
+  - deathSound: {fileID: 8300000, guid: 5607c9109c8bedd42a4c5b917781cd73, type: 3}
+  - walkingSound: {fileID: 8300000, guid: adc7fb29c9e994cce8ee2d6e83456f45, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

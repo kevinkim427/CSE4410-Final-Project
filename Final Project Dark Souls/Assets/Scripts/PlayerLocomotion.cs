@@ -33,6 +33,9 @@ namespace DS
         [SerializeField]
         int rollStaminaCost = 15;
 
+        public CapsuleCollider characterCollider;
+        public CapsuleCollider characterCollisionBlockerCollider;
+
         private void Awake()
         {
             cameraHandler = FindFirstObjectByType<CameraHandler>();
@@ -47,6 +50,7 @@ namespace DS
             cameraObject = Camera.main.transform;   
             myTransform = transform;
             animatorHandler.Initialize();
+            Physics.IgnoreCollision(characterCollider, characterCollisionBlockerCollider, true);
         }
 
         #region Movement

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f662f809306ab47a495198ea87885e, type: 3}
+  m_Name: GraveSword
+  m_EditorClassIdentifier: 
+  itemicon: {fileID: 0}
+  itemname: GraveSword
+  modelPrefab: {fileID: 1383276074494245749, guid: 6f4de618cf41ce846a10655d64b4d866, type: 3}
+  isUnarmed: 0
+  Light_Attack: Attack_01
+  Heavy_Attack: Attack_02
+  baseStamina: 20
+  lightAttackMultiplier: 1
+  heavyAttackMultiplier: 2

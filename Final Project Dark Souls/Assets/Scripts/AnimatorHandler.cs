@@ -115,5 +115,19 @@ namespace DS
             Vector3 velocity = deltaPosition / delta;
             playerLocomotion.rigidbody.velocity = velocity;
         }
+        
+        public void DisableCollision()
+        {
+            playerLocomotion.characterCollider.enabled = false;
+            playerLocomotion.characterCollisionBlockerCollider.enabled = false;
+        }
+
+        public void EnableCollision()
+        {
+            playerLocomotion.characterCollider.enabled = true;
+            playerLocomotion.characterCollisionBlockerCollider.enabled = true;
+        }
+
+        
     }
 }

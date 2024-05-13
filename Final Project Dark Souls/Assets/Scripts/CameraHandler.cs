@@ -13,7 +13,7 @@ namespace DS
         public Transform cameraPivotTransform;
         private Transform myTransform;
         private Vector3 cameraTransformPosition;
-        private LayerMask ignoreLayers;
+        public LayerMask ignoreLayers;
         public LayerMask enviromentLayer;
         private Vector3 cameraFollowVelocity = Vector3.zero;
 
