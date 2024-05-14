@@ -12,7 +12,8 @@ namespace DS
         StaminaBar staminaBar;
         AnimatorHandler animatorHandler;
         InputHandler inputHandler;
-        SoundDesign sound;
+        public AudioClip playerHitSound;
+        public AudioClip deathSound;
 
         public float staminaRegenerationAmount = 30;
         public float staminaRegenerationTimer = 0;
@@ -55,7 +56,7 @@ namespace DS
                 return;
             currentHealth = currentHealth - damage;
             healthBar.SetCurrentHealth(currentHealth);
-//            sound.PlayPlayerHitSound();
+            AudioSource.PlayClipAtPoint(playerHitSound, transform.position);
             animatorHandler.PlayTargetAnimation("Damage", true);
 
             if(currentHealth <= 0)
@@ -63,7 +64,7 @@ namespace DS
                 currentHealth = 0;
                 animatorHandler.PlayTargetAnimation("Dead", true);
                 isDead = true;
-//                sound.PlayDeathSound();
+                AudioSource.PlayClipAtPoint(deathSound, transform.position);
                 // Handle Player Death;
                 SceneManager.LoadScene("GameOver");
             }

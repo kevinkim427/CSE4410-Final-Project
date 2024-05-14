@@ -127,7 +127,5 @@ namespace DS
             playerLocomotion.characterCollider.enabled = true;
             playerLocomotion.characterCollisionBlockerCollider.enabled = true;
         }
-
-        
     }
 }

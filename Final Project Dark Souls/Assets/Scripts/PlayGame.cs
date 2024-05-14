@@ -7,12 +7,17 @@ namespace DS
 {
     public class PlayGame : MonoBehaviour
     {   
-        // Start is called before the first frame update
-        void Start()
+        private void start()
         {
-            Cursor.lockState = CursorLockMode.None;
+            //Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+
+        public void Menu()
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+
         public void Play() 
         {
             SceneManager.LoadScene("SampleScene");

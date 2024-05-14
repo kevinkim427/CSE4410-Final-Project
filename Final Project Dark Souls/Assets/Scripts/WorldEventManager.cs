@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
 
 namespace DS
 {
@@ -10,6 +11,7 @@ namespace DS
         BossHealthBar bossHealthBar;
         EnemyBossManager boss;
         SoundDesign sound;
+        public AudioClip bossFightSong; 
 
         public bool bossFightIsActive;
         public bool bossHasBeenAwakened;
@@ -25,8 +27,8 @@ namespace DS
             bossFightIsActive = true;
             bossHasBeenAwakened = true;
             bossHealthBar.SetHealthBarToActive();
+            AudioSource.PlayClipAtPoint(bossFightSong, transform.position);
             fogwall.ActivateFogWall();
-//            sound.isBossFightScene = true;
         }
 
         public void BosshasBeenDefeated()

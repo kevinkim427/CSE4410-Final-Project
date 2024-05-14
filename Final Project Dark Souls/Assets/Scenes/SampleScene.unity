@@ -695,6 +695,8 @@ MonoBehaviour:
   maxStamina: 0
   currentStamina: 0
   isDead: 0
+  playerHitSound: {fileID: 8300000, guid: 956e6f507c2c84ee58b281510190d546, type: 3}
+  deathSound: {fileID: 8300000, guid: 5607c9109c8bedd42a4c5b917781cd73, type: 3}
   staminaRegenerationAmount: 30
   staminaRegenerationTimer: 0
 --- !u!114 &416061942
@@ -711,11 +713,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songs:
   - {fileID: 8300000, guid: f64c0bf6ebf7c467e8950835ba44f158, type: 3}
-  isBossFightScene: 0
-  bossFightSong: {fileID: 8300000, guid: 97d6a63d22086174386a5cbb41f5207e, type: 3}
-  hitSound: {fileID: 8300000, guid: 362ec7da2f2a045e08a1402cb0b01797, type: 3}
-  playerHitSound: {fileID: 8300000, guid: 956e6f507c2c84ee58b281510190d546, type: 3}
-  deathSound: {fileID: 8300000, guid: 5607c9109c8bedd42a4c5b917781cd73, type: 3}
   walkingSound: {fileID: 8300000, guid: adc7fb29c9e994cce8ee2d6e83456f45, type: 3}
   backgroundMusicVolume: 0.05
   walkingSoundVolume: 0.75
@@ -1063,6 +1060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fogwall: {fileID: 1152089890}
+  bossFightSong: {fileID: 8300000, guid: 97d6a63d22086174386a5cbb41f5207e, type: 3}
   bossFightIsActive: 0
   bossHasBeenAwakened: 0
   bossHasBeenDefeated: 0
@@ -2172,8 +2170,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 26.991467
+  far clip plane: 100
+  field of view: 48
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -7602,6 +7600,14 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4155058066629121125, guid: e64e8335aeb2f964f880112a58c9cbc7, type: 3}
+      propertyPath: hitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 362ec7da2f2a045e08a1402cb0b01797, type: 3}
+    - target: {fileID: 4155058066629121125, guid: e64e8335aeb2f964f880112a58c9cbc7, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5607c9109c8bedd42a4c5b917781cd73, type: 3}
     - target: {fileID: 5315618941266108394, guid: e64e8335aeb2f964f880112a58c9cbc7, type: 3}
       propertyPath: m_Constraints
       value: 84
@@ -8260,6 +8266,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7934286958991626399, guid: 3cc658455802dfd47868c39464372909, type: 3}
+      propertyPath: hitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 362ec7da2f2a045e08a1402cb0b01797, type: 3}
+    - target: {fileID: 7934286958991626399, guid: 3cc658455802dfd47868c39464372909, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5607c9109c8bedd42a4c5b917781cd73, type: 3}
     - target: {fileID: 8031368877344778225, guid: 3cc658455802dfd47868c39464372909, type: 3}
       propertyPath: m_Constraints
       value: 84
@@ -8323,9 +8337,9 @@ MonoBehaviour:
   enviromentLayer:
     serializedVersion: 2
     m_Bits: 0
-  lookSpeed: 0.0005
+  lookSpeed: 0.03
   followSpeed: 0.1
-  pivotSpeed: 0.0003
+  pivotSpeed: 0.04
   minimumPivot: -35
   maximumPivot: 35
   cameraSphereRadius: 0.2
@@ -8438,6 +8452,14 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4155058066629121125, guid: e64e8335aeb2f964f880112a58c9cbc7, type: 3}
+      propertyPath: hitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 362ec7da2f2a045e08a1402cb0b01797, type: 3}
+    - target: {fileID: 4155058066629121125, guid: e64e8335aeb2f964f880112a58c9cbc7, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5607c9109c8bedd42a4c5b917781cd73, type: 3}
     - target: {fileID: 5315618941266108394, guid: e64e8335aeb2f964f880112a58c9cbc7, type: 3}
       propertyPath: m_Constraints
       value: 84

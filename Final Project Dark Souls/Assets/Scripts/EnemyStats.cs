@@ -10,7 +10,8 @@ namespace DS
         EnemyAnimatorManager animatorHandler;
         EnemyBossManager enemyBossManager;
         public BossHealthBar healthBar;
-        SoundDesign sound;
+        public AudioClip hitSound;
+        public AudioClip deathSound;
 
         public bool isBoss;
 
@@ -43,6 +44,7 @@ namespace DS
                 return;
             currentHealth = currentHealth - damage;
             animatorHandler.PlayTargetAnimation("Damage", true);
+            AudioSource.PlayClipAtPoint(hitSound, transform.position);
 
             if(isBoss) 
             {
@@ -52,15 +54,17 @@ namespace DS
             if(currentHealth <= 0)
             {
                 currentHealth = 0;
+                AudioSource.PlayClipAtPoint(deathSound, transform.position);
                 animatorHandler.PlayTargetAnimation("Dead", true);
                 isDead = true;
                 // Handle Enemy Death;
-                Destroy(gameObject);
+                Destroy(this.gameObject);
             }
 
             if(isBoss && currentHealth <= 0)
             {
                 currentHealth = 0;
+                AudioSource.PlayClipAtPoint(deathSound, transform.position);
                 animatorHandler.PlayTargetAnimation("Dead", true);
                 isDead = true;
                 SceneManager.LoadScene("MainMenu");
